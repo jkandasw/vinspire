@@ -22,5 +22,7 @@ Things you may want to cover:
 * Deployment instructions
 
 * Associations
+
 * User has a mood; mood belongs to many users
+
 * User has many quotes; quotes belongs to many users
