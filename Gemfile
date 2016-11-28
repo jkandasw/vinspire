@@ -1,10 +1,10 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 
-gem "starter_generators", :git => "http://github.com/raghubetina/starter_generators.git"
+# gem "starter_generators", :git => "http://github.com/raghubetina/starter_generators.git"
 
 gem "devise"
 
@@ -52,14 +52,14 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-gem 'starter_generators', :git => 'https://github.com/raghubetina/starter_generators.git',  :branch => 'firstdraft'
+gem 'starter_generators', :git => 'http://github.com/raghubetina/starter_generators.git',  :branch => 'firstdraft'
 gem 'font-awesome-sass', '~> 4.5.0'
 gem 'activeadmin', '~> 1.0.0.pre4'
-gem 'inherited_resources', :git => 'https://github.com/activeadmin/inherited_resources.git'
+gem 'inherited_resources', :git => 'http://github.com/activeadmin/inherited_resources.git'
 gem "rollbar"
 gem "kaminari"
 gem "bootstrap4-kaminari-views"
-gem 'seed_dump', :git => 'https://github.com/firstdraft/seed_dump.git'
+gem 'seed_dump', :git => 'http://github.com/firstdraft/seed_dump.git'
 gem 'activerecord-import'
 gem "ransack"
 gem 'momentjs-rails', '>= 2.9.0'

@@ -7,5 +7,7 @@ class Mood < ApplicationRecord
   # Indirect associations
 
   # Validations
+  belongs_to :user
+
 
 end
