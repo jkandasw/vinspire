@@ -20,7 +20,13 @@
       <tr>
         <td><%= quote.quote %></td>
         <td><%= quote.author %></td>
-        <td><%= quote.mood.mood %></td>
+        <td>
+          <% if quote.mood.present? %>
+            <a href="/moods/<%= quote.mood.id %>">
+              <%= quote.mood.mood %>
+            </a>
+          <% end %>
+        </td>
         <td><%= quote.quote_type %></td>
         <td>
           <a href="/quotes/<%= quote.id %>" class="btn btn-primary">Show</a>
