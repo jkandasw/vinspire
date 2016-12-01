@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   ActiveAdmin.routes(self)
-  root :to => "users#index"
+  root :to => "pages#home"
   # Routes for the Mood resource:
   # CREATE
   get "/moods/new", :controller => "moods", :action => "new"
