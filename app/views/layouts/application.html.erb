@@ -8,10 +8,10 @@
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
   <style>
-    /* Only necessary if you are using navbar-fixed-top */
-    body {
-      padding-top: 60px;
-    }
+  /* Only necessary if you are using navbar-fixed-top */
+  body {
+    padding-top: 80px;
+  }
   </style>
 
   <%= stylesheet_link_tag    "application", :media => "all" %>
@@ -28,55 +28,115 @@
     <div class="container">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a href="/" class="navbar-brand">Vinspire</a>
-      </div>
-
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-          <li><a href="/batch_action_admin_moods">Batch Action Admin Moods</a></li>
-          <li><a href="/admin_moods">Admin Moods</a></li>
-          <li><a href="/batch_action_admin_quotes">Batch Action Admin Quotes</a></li>
-          <li><a href="/admin_quotes">Admin Quotes</a></li>
-          <li><a href="/batch_action_admin_users">Batch Action Admin Users</a></li>
-          <li><a href="/admin_users">Admin Users</a></li>
-          <li><a href="/admin_admin_comments">Admin Admin Comments</a></li>
-          <li><a href="/moods">Moods</a></li>
-          <li><a href="/quotes">Quotes</a></li>
-          <li><a href="/users">Users</a></li>
-          <li><a href="/rails/info">Sitemap</a></li>
-        </ul>
-
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="/users/edit">Dummy Edit Profile Link</a></li>
-          <li><a href="/users/sign_out" data-method="delete" rel="nofollow">Dummy Sign Out Link</a></li>
-        </ul>
-      </div><!-- /.navbar-collapse -->
+        <!-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button> -->
+      <a href="/" class="navbar-brand">Vinspire</a>
     </div>
-  </nav>
 
-  <div class="container">
-    <% if notice.present? %>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <!-- <li>
+          <a href=href="/users">
+            <i class="fa fa-fw fa-users"></i>
+            <span class="hidden-sm">
+              Users
+            </span>
+          </a>
+        </li> -->
+        <ul class="nav navbar-nav navbar-right">
+          <% if current_user.present? %>
+          <li>
+            <a href="/users/edit">
+
+                  <i class="fa fa-fw fa-edit"></i>
+                  <span class="hidden-sm">
+                    <%= current_user.email %>  </span>
+            </a>
+          </li>
+
+          <% else %>
+          <li>
+            <a href="/users/sign_in">
+                <i class="fa fa-fw fa-sign-in"></i>
+              Sign In
+              </a>
+            </li>
+          <li>
+            <a href="/users/sign_up">
+                <i class="fa fa-fw fa-user-plus"></i>
+              Sign Up
+              </a>
+            </li>
+          <% end %>
+          <li>
+            <a href="/admin_users">
+              <i class="fa fa-fw fa-gear"></i>
+              <span class="hidden-sm">
+                Admin Users              </span>
+              </a>
+            </li>
+            <li>
+              <a href="/rails/info">
+                <i class="fa fa-fw fa-tasks "></i>
+                <span class="hidden-sm">
+                  Sitemap              </span>
+                </a>
+              </li>
+
+              <li>
+                <a href="/users/sign_out" data-method="delete" rel="nofollow">
+                  <i class="fa fa-fw fa-sign-out"></i>
+                  Sign Out
+                </a>
+              </li>
+        </ul>
+
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <!-- <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"> -->
+            <!-- <ul class="nav navbar-nav">
+            <li><a href="/batch_action_admin_moods">Batch Action Admin Moods</a></li>
+            <li><a href="/admin_moods">Admin Moods</a></li>
+            <li><a href="/batch_action_admin_quotes">Batch Action Admin Quotes</a></li>
+            <li><a href="/admin_quotes">Admin Quotes</a></li>
+            <li><a href="/batch_action_admin_users">Batch Action Admin Users</a></li>
+            <li><a href="/admin_users">Admin Users</a></li>
+            <li><a href="/admin_admin_comments">Admin Admin Comments</a></li>
+            <li><a href="/moods">Moods</a></li>
+            <li><a href="/quotes">Quotes</a></li>
+            <li><a href="/users">Users</a></li>
+            <li><a href="/rails/info">Sitemap</a></li>
+          </ul> -->
+
+
+
+          
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+      <% if notice.present? %>
       <div class="alert alert-dismissable alert-success">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
         <%= notice %>
       </div>
-    <% end %>
+      <% end %>
 
-    <% if alert.present? %>
+      <% if alert.present? %>
       <div class="alert alert-dismissable alert-warning">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
         <%= alert %>
       </div>
-    <% end %>
+      <% end %>
 
-    <%= yield %>
-  </div>
-</body>
-</html>
+      <%= yield %>
+    </div>
+  </body>
+  </html>
