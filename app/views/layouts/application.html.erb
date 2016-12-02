@@ -58,6 +58,26 @@
                     <%= current_user.email %>  </span>
             </a>
           </li>
+          <li>
+            <a href="/admin_users">
+              <i class="fa fa-fw fa-gear"></i>
+              <span class="hidden-sm">
+                Admin Users              </span>
+              </a>
+            </li>
+            <li>
+              <a href="/rails/info">
+                <i class="fa fa-fw fa-tasks "></i>
+                <span class="hidden-sm">
+                  Sitemap              </span>
+                </a>
+              </li>
+          <li>
+            <a href="/users/sign_out" data-method="delete" rel="nofollow">
+              <i class="fa fa-fw fa-sign-out"></i>
+              Sign Out
+            </a>
+          </li>
 
           <% else %>
           <li>
@@ -73,28 +93,9 @@
               </a>
             </li>
           <% end %>
-          <li>
-            <a href="/admin_users">
-              <i class="fa fa-fw fa-gear"></i>
-              <span class="hidden-sm">
-                Admin Users              </span>
-              </a>
-            </li>
-            <li>
-              <a href="/rails/info">
-                <i class="fa fa-fw fa-tasks "></i>
-                <span class="hidden-sm">
-                  Sitemap              </span>
-                </a>
-              </li>
 
-              <li>
-                <a href="/users/sign_out" data-method="delete" rel="nofollow">
-                  <i class="fa fa-fw fa-sign-out"></i>
-                  Sign Out
-                </a>
-              </li>
-        </ul>
+
+                      </ul>
 
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -115,7 +116,7 @@
 
 
 
-          
+
           </ul>
         </div><!-- /.navbar-collapse -->
       </div>
