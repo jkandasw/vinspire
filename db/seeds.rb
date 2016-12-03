@@ -12,15 +12,16 @@ Mood.create!([{mood_choice: "Disappointment"}, {mood_choice:"Sorrow"}, {mood_cho
 
 require 'csv'
 
-csv_text = File.read(Rails.root.join('lib', 'seeds', 'quotes.csv'))
-csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
+csv_text = File.read(Rails.root.join('lib', 'seeds', 'quotes_mood.csv'))
+  csv_text = csv_text.force_encoding('iso-8859-1').encode('utf-8')
+csv = CSV.parse(csv_text, :headers => true)
 csv.each do |row|
   t = Quote.new
   t.body = row['body']
   t.author = row['author']
   t.quote_type = row['quote_type']
   t.save
-  puts "#{t.quote}, #{t.author}, #{t.type} saved"
+  puts "#{t.body}, #{t.author}, #{t.quote_type} saved"
 end
 
 puts "There are now #{Quote.count} rows in the transactions table"
