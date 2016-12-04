@@ -20,8 +20,12 @@ csv.each do |row|
   t.body = row['body']
   t.author = row['author']
   t.quote_type = row['quote_type']
+  m=Mood.find_by(:mood_choice => row['mood_choice'] )
+  t.mood_id=m.id
   t.save
   puts "#{t.body}, #{t.author}, #{t.quote_type} saved"
+
+
 end
 
 puts "There are now #{Quote.count} rows in the transactions table"

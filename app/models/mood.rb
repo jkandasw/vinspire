@@ -8,7 +8,7 @@ class Mood < ApplicationRecord
 
   # Validations
   belongs_to :user
-  has_many: quotes
+  has_many :quotes
 
 
 end

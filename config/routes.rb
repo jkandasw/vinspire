@@ -2,8 +2,13 @@ Rails.application.routes.draw do
   devise_for :users
   ActiveAdmin.routes(self)
   root :to => "pages#home"
+
+    get "/home", :controller => "pages", :action => "home"
+
+    get("/street_to_weather", { :controller => "pages", :action => "street_to_weather" })
+
   # Routes for the Mood resource:
-  # CREATE
+    # CREATE
   get "/moods/new", :controller => "moods", :action => "new"
   post "/create_mood", :controller => "moods", :action => "create"
 
