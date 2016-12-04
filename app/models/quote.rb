@@ -6,5 +6,5 @@ class Quote < ApplicationRecord
   # Indirect associations
 
   # Validations
-
+ belongs_to: mood
 end
