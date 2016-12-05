@@ -9,6 +9,9 @@ Rails.application.routes.draw do
 
     get "/users", :controller => "users", :action => "index"
 
+    get "/quotes", :controller => "users", :action => "show"
+
+
   # Routes for the Mood resource:
     # CREATE
   # get "/moods/new", :controller => "moods", :action => "new"

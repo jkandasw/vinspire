@@ -6,6 +6,12 @@ class UsersController < ApplicationController
     render("users/index.html.erb")
   end
 
+  def show
+    @type=params[:quote_type]
+    @mood== params[:mood_choice]
+
+  end
+
   # def show
   #   @user = User.find(params[:id])
   #
