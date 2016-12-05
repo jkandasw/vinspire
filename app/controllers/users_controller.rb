@@ -7,9 +7,11 @@ class UsersController < ApplicationController
   end
 
   def show
-    @type=params[:quote_type]
-    @mood== params[:mood_choice]
-
+    type=params[:quote_type]
+    mood=params[:mood_choice]
+q= Quote.where(:quote_type => type, :mood_choice =>mood)
+@quote = q.body
+render("users/show.html.erb")
   end
 
   # def show
