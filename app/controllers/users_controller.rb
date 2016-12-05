@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  # skip_before_action :authenticate_user!, :only => [:index, :show]
+
   def index
     # @q = User.ransack(params[:q])
     # @users = @q.result(:distinct => true).page(params[:page]).per(10)
