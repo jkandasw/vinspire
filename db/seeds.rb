@@ -13,7 +13,7 @@ Mood.create!([{mood_choice: "Disappointment"}, {mood_choice:"Sorrow"}, {mood_cho
 require 'csv'
 
 csv_text = File.read(Rails.root.join('lib', 'seeds', 'quotes_mood.csv'))
-  csv_text = csv_text.force_encoding('iso-8859-1').encode('utf-8')
+csv_text = csv_text.force_encoding('iso-8859-1').encode('utf-8')
 csv = CSV.parse(csv_text, :headers => true)
 csv.each do |row|
   t = Quote.new
@@ -24,7 +24,6 @@ csv.each do |row|
   t.mood_id=m.id
   t.save
   puts "#{t.body}, #{t.author}, #{t.quote_type} saved"
-
 
 end
 

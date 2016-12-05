@@ -28,7 +28,7 @@ q = Quote.find_by(:id => id)
       @latitude = latitude.to_s
       @longitude = longitude.to_s
 
-      url="http://api.darksky.net/forecast/9d5eb4782ee71dbc0d39bee95b19ccff/"+@latitude+","+@longitude
+      url="https://api.darksky.net/forecast/9d5eb4782ee71dbc0d39bee95b19ccff/"+@latitude+","+@longitude
       parsed_data = JSON.parse(open(url).read)
 
       @current_temperature =  parsed_data["currently"]["temperature"]
