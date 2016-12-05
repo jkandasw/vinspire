@@ -57,65 +57,122 @@
   &nbsp
 
 
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h2 class="panel-title"><p>The quote is great, but you may want to check weather before you head out. Please enter address below </p></h2>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h2 class="panel-title"><p>The quote is great, but you may want to check weather before you head out. Please enter address below </p></h2>
 
-          &nbsp
-          <!-- <div class="row">
-          <div class="col-md-offset-1 col-md-3"> -->
+      &nbsp
+      <!-- <div class="row">
+      <div class="col-md-offset-1 col-md-3"> -->
 
-          <form action="/">
-            <div>
-              <label for="the_address">Street Address</label>
-              <span>
-                <input type="text" name="user_street_address" id="the_address"></span>
-                &nbsp
-              </div>
-
-              <button>Tell me the weather!</button>
-            </form>
+      <form action="/">
+        <div>
+          <label for="the_address">Street Address</label>
+          <span>
+            <input type="text" name="user_street_address" id="the_address"></span>
+            &nbsp
           </div>
-          <%  if params[:user_street_address].present? %>
-          <dl>
-            <dt>Current Temperature</dt>
-            <dd><%= @current_temperature %></dd>
 
-            <dt>Current Summary</dt>
-            <dd><%= @current_summary %></dd>
-
-            <dt>Outlook for next sixty minutes</dt>
-            <dd><%= @summary_of_next_sixty_minutes %></dd>
-
-            <dt>Outlook for next several hours</dt>
-            <dd><%= @summary_of_next_several_hours %></dd>
-
-            <dt>Outlook for next several days</dt>
-            <dd><%= @summary_of_next_several_days %></dd>
-          </dl>
-          <%end %>
-
-        </div>
-        <div class="col-md-7">
-        </div>
+          <button>Tell me the weather!</button>
+        </form>
       </div>
+      <%  if params[:user_street_address].present? %>
+      <dl>
+        <dt>Current Temperature</dt>
+        <dd><%= @current_temperature %></dd>
 
-      &nbsp
-      &nbsp
-            <div class="row">
-        <div class="col-md-offset-2 col-md-8">
-          <div class="well well-lg">
-            <ul class="list-group">
-              <li class="list-group-item ">Vinspire
-                <br> 1002 N Plum Grove Road </br>
-                <p> Schaumburg
-                  IL 60173
-                  info@vinspire.com </p>
-                </li>
-              </ul>
+        <dt>Current Summary</dt>
+        <dd><%= @current_summary %></dd>
 
+        <dt>Outlook for next sixty minutes</dt>
+        <dd><%= @summary_of_next_sixty_minutes %></dd>
+
+        <dt>Outlook for next several hours</dt>
+        <dd><%= @summary_of_next_several_hours %></dd>
+
+        <dt>Outlook for next several days</dt>
+        <dd><%= @summary_of_next_several_days %></dd>
+      </dl>
+      <%end %>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-offset-1 col-md-10">
+          </div>
+          <div class="col-md-7">
+          </div>
+        </div>
+
+        &nbsp
+        &nbsp
+        <div class="row">
+          <div class="col-md-offset-2 col-md-8">
+            <div class="well well-lg">
+              <ul class="list-group">
+                <li class="list-group-item ">Vinspire
+                  <br> 1002 N Plum Grove Road </br>
+                  <p> Schaumburg
+                    IL 60173
+                    info@vinspire.com </p>
+                  </li>
+                </ul>
+
+              </div>
             </div>
           </div>
         </div>
+        <%else%>
+        <div class="row">
+          <div class="col-md-offset-1 col-md-10">
+            <%= image_tag("Quote_Photos.jpg", :class =>"img-responsive") %>
+          </div>
+        </div>
+
+          &nbsp
+
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h2 class="panel-title"><p>Enter your choices below to get your personalized quote </p></h2>
+
+                  <div class="row">
+          <div class="col-md-offset-1 col-md-3">
+            <form action="/quotes">
+              <div>
+                <label for="quote_type">What type of quote would you like?</label>
+             <select name="quote_type" id="quote_type" class="form-control">
+                  <% Quote.distinct.pluck(:quote_type).each do |quote_type| %>
+                  <option value="<%= quote_type %>"><%= quote_type %></option>
+                  <% end %>
+                </select>
+                <!-- <input type="text" name="user_quote_type" id="quote_type"> -->
+              </div>
+
+              <div>
+                <label for="mood_choice">What mood are you in today?</label>
+                <select name="mood_choice" id="mood_choice" class="form-control">
+               <% Mood.distinct.pluck(:mood_choice).each do |mood_choice| %>
+                 <option value="<%= mood_choice %>"><%= mood_choice %></option>
+               <% end %>
+             </select>
+                <%#= select_tag(:quote_type, options_from_collection_for_select(Quote.all, :mood_id, :body, @quote.quote_type), :class => "form-control") %>
+                <!-- <input type="text" name="user_mood_choice" id="mood_choice"> -->
+              </div>
+
+              <button><span>Give me a quote to match my mood!</span></button>
+            </form>
+          </div>
+
+          <div class="col-md-7">
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="col-md-offset-2 col-md-8">
+
+          </div>
+        </div>
       </div>
+
+
+
       <%end%>

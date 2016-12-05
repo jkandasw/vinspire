@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
     get("/street_to_weather", { :controller => "pages", :action => "street_to_weather" })
 
-    get "/users", :controller => "users", :action => "index"
+    # get "/users", :controller => "users", :action => "index"
 
     get "/quotes", :controller => "users", :action => "show"
 
