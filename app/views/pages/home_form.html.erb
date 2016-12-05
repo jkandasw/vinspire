@@ -42,69 +42,80 @@
   </div>
 </div>
 
+&nbsp
+
 <div class="row">
   <div class="col-md-offset-1 col-md-10">
-    <h1>Quote for the day for you</h1>
     <div class="panel panel-default">
+      <div class="panel-heading"><h4>A quote for you...</h4></div>
       <div class="panel-body">
         <%= @quote %>  </div>
       </div>
     </div>
   </div>
 
-  <div class="panel panel-default">
-    <div class="panel-heading">Wait a sec!</div>
-    <div class="panel-body">
-      <p>The quote is great, but you may want to check weather before you head out. Please enter address below </p>
-    </div>
-  </div>
+  &nbsp
 
 
-  <div class="row">
-    <div class="col-md-offset-1 col-md-3">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h2 class="panel-title"><p>The quote is great, but you may want to check weather before you head out. Please enter address below </p></h2>
 
-      <form action="/">
-        <div>
-          <label for="the_address">Street Address</label>
-          <span>
-            <input type="text" name="user_street_address" id="the_address"></span>
+          &nbsp
+          <!-- <div class="row">
+          <div class="col-md-offset-1 col-md-3"> -->
+
+          <form action="/">
+            <div>
+              <label for="the_address">Street Address</label>
+              <span>
+                <input type="text" name="user_street_address" id="the_address"></span>
+                &nbsp
+              </div>
+
+              <button>Tell me the weather!</button>
+            </form>
           </div>
-          <button>Tell me the weather!</button>
-        </form>
+          <%  if params[:user_street_address].present? %>
+          <dl>
+            <dt>Current Temperature</dt>
+            <dd><%= @current_temperature %></dd>
 
-        <%  if params[:user_street_address].present? %>
-        <dl>
-          <dt>Current Temperature</dt>
-          <dd><%= @current_temperature %></dd>
+            <dt>Current Summary</dt>
+            <dd><%= @current_summary %></dd>
 
-          <dt>Current Summary</dt>
-          <dd><%= @current_summary %></dd>
+            <dt>Outlook for next sixty minutes</dt>
+            <dd><%= @summary_of_next_sixty_minutes %></dd>
 
-          <dt>Outlook for next sixty minutes</dt>
-          <dd><%= @summary_of_next_sixty_minutes %></dd>
+            <dt>Outlook for next several hours</dt>
+            <dd><%= @summary_of_next_several_hours %></dd>
 
-          <dt>Outlook for next several hours</dt>
-          <dd><%= @summary_of_next_several_hours %></dd>
+            <dt>Outlook for next several days</dt>
+            <dd><%= @summary_of_next_several_days %></dd>
+          </dl>
+          <%end %>
 
-          <dt>Outlook for next several days</dt>
-          <dd><%= @summary_of_next_several_days %></dd>
-        </dl>
-        <%end %>
-
+        </div>
+        <div class="col-md-7">
+        </div>
       </div>
-      <div class="col-md-7">
-      </div>
-    </div>
 
+      &nbsp
+      &nbsp
+            <div class="row">
+        <div class="col-md-offset-2 col-md-8">
+          <div class="well well-lg">
+            <ul class="list-group">
+              <li class="list-group-item ">Vinspire
+                <br> 1002 N Plum Grove Road </br>
+                <p> Schaumburg
+                  IL 60173
+                  info@vinspire.com </p>
+                </li>
+              </ul>
 
-    <div class="row">
-      <div class="col-md-offset-2 col-md-8">
-<div class="well well-lg">
-Vinpsire
-1002 N Plum Grove Road, Schaumburg, IL 60173
-info@vinspire.com
-  </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-<%end%>
+      <%end%>
