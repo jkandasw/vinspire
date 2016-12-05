@@ -2,9 +2,7 @@ class PagesController < ApplicationController
 
 
   def home
-
-id = rand(30...60)
-q = Quote.find_by(:id => id)
+q = Quote.all.sample
 @quote=q.body
           render("pages/home_form.html.erb")
     end
