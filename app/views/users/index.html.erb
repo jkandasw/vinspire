@@ -5,29 +5,16 @@
           <form action="/quotes">
             <div>
               <label for="quote_type">What type of quote would you like?</label>
-              <%= select_tag(:quote_type, options_from_collection_for_select(Quote.all, :mood_id, :body, @quote.quote_type), :class => "form-control") %>
+              <%= select_tag(:quote_type, options_for_select(Quote.all, :id, :quote_type), :class => "form-control") %>
 
               <input type="text" name="user_quote_type" id="quote_type">
             </div>
 
             <div>
               <label for="mood_choice">What mood are you in today?</label>
+              <%#= select_tag(:quote_type, options_from_collection_for_select(Quote.all, :mood_id, :body, @quote.quote_type), :class => "form-control") %>
               <input type="text" name="user_mood_choice" id="mood_choice">
-              <div class="dropdown">
-  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-    Dropdown
-    <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-    <li><a href="#">Agony</a></li>
-    <li><a href="#">Depressed</a></li>
-    <li><a href="#">Disappointment</a></li>
-    <li><a href="#">Disappointment</a></li>
-    <li role="separator" class="divider"></li>
-    <li><a href="#">Separated link</a></li>
-  </ul>
-</div>
-            </div>
+              </div>
 
             <button>Give me a quote to match my mood!</button>
           </form>
