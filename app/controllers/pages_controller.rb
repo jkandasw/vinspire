@@ -10,6 +10,7 @@ q = Quote.find_by(:id => id)
     end
 
     def street_to_weather
+      # raise params.inspect
       @street_address = params[:user_street_address]
       @street_address_without_spaces = URI.encode(@street_address)
 
@@ -27,7 +28,7 @@ q = Quote.find_by(:id => id)
       @latitude = latitude.to_s
       @longitude = longitude.to_s
 
-      url="https://api.darksky.net/forecast/9d5eb4782ee71dbc0d39bee95b19ccff/"+@latitude+","+@longitude
+      url="http://api.darksky.net/forecast/9d5eb4782ee71dbc0d39bee95b19ccff/"+@latitude+","+@longitude
       parsed_data = JSON.parse(open(url).read)
 
       @current_temperature =  parsed_data["currently"]["temperature"]
@@ -38,16 +39,16 @@ q = Quote.find_by(:id => id)
       @summary_of_next_several_hours = parsed_data["hourly"]["summary"]
 
       @summary_of_next_several_days = parsed_data["daily"]["summary"]
-
-      @current_temperature = "Replace this string with your answer."
-
-      @current_summary = "Replace this string with your answer."
-
-      @summary_of_next_sixty_minutes = "Replace this string with your answer."
-
-      @summary_of_next_several_hours = "Replace this string with your answer."
-
-      @summary_of_next_several_days = "Replace this string with your answer."
+      #
+      # @current_temperature = "Replace this string with your answer."
+      #
+      # @current_summary = "Replace this string with your answer."
+      #
+      # @summary_of_next_sixty_minutes = "Replace this string with your answer."
+      #
+      # @summary_of_next_several_hours = "Replace this string with your answer."
+      #
+      # @summary_of_next_several_days = "Replace this string with your answer."
 
       render("pages/home.html.erb")
     end
