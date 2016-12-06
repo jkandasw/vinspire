@@ -127,44 +127,40 @@
           </div>
         </div>
 
-          &nbsp
+        &nbsp
 
         <div class="panel panel-default">
           <div class="panel-heading">
             <h2 class="panel-title"><p>Enter your choices below to get your personalized quote </p></h2>
 
-                  <div class="row">
-          <div class="col-md-offset-1 col-md-10">
-            <form action="/quotes">
-              <div>
-                <label for="quote_type">What type of quote would you like?</label>
-             <select name="quote_type" id="quote_type" class="form-control">
-                  <% Quote.distinct.pluck(:quote_type).each do |quote_type| %>
-                  <option value="<%= quote_type %>"><%= quote_type %></option>
-                  <% end %>
-                </select>
-                <!-- <input type="text" name="user_quote_type" id="quote_type"> -->
-              </div>
+            <div class="row">
+              <div class="col-md-offset-1 col-md-10">
+                <form action="/quotes">
+                  <div>
+                    <label for="quote_type">What type of quote would you like?</label>
+                    <select name="quote_type" id="quote_type" class="form-control">
+                      <% Quote.distinct.pluck(:quote_type).each do |quote_type| %>
+                      <option value="<%= quote_type %>"><%= quote_type %></option>
+                      <% end %>
+                    </select>
+                    <!-- <input type="text" name="user_quote_type" id="quote_type"> -->
+                  </div>
 
-              <div>
-                <label for="mood_choice">What mood are you in today?</label>
-                <select name="mood_choice" id="mood_choice" class="form-control">
-               <% Mood.distinct.pluck(:mood_choice).each do |mood_choice| %>
-                 <option value="<%= mood_choice %>"><%= mood_choice %></option>
-               <% end %>
-             </select>
-                <%#= select_tag(:quote_type, options_from_collection_for_select(Quote.all, :mood_id, :body, @quote.quote_type), :class => "form-control") %>
-                <!-- <input type="text" name="user_mood_choice" id="mood_choice"> -->
+                  <div>
+                    <label for="mood_choice">What mood are you in today?</label>
+                    <select name="mood_choice" id="mood_choice" class="form-control">
+                      <% Mood.distinct.pluck(:mood_choice).each do |mood_choice| %>
+                      <option value="<%= mood_choice %>"><%= mood_choice %></option>
+                      <% end %>
+                    </select>
+                  </div>
+                  <button type="submit" class="btn btn-default btn-lg btn-block">Get a quote!</button>
+                </div>
+              </form>
+
+              <div class="col-md-7">
               </div>
-                    &nbsp
-              <button type="button" class="btn btn-default btn-lg btn-block">Get a quote!</button>
-            </form>
+            </div>
           </div>
 
-            <div class="col-md-7">
-          </div>
-        </div>
-
-      </div>
-
-      <%end%>
+          <%end%>
