@@ -1,7 +1,7 @@
 <% if current_user == nil %>
 <div class="container">
   <div class="row">
-    <div class="col-md-offset-1 col-md-10">
+    <div class="col-md-12">
       <!-- <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
       <!-- Indicators -->
       <ol class="carousel-indicators">
@@ -45,7 +45,7 @@
 &nbsp
 
 <div class="row">
-  <div class="col-md-offset-1 col-md-10">
+  <div class="col-md-12">
     <div class="panel panel-default">
       <div class="panel-heading"><h4>A quote for you...</h4></div>
       <div class="panel-body">
@@ -134,7 +134,7 @@
             <h2 class="panel-title"><p>Enter your choices below to get your personalized quote </p></h2>
 
                   <div class="row">
-          <div class="col-md-offset-1 col-md-3">
+          <div class="col-md-offset-1 col-md-10">
             <form action="/quotes">
               <div>
                 <label for="quote_type">What type of quote would you like?</label>
@@ -156,23 +156,15 @@
                 <%#= select_tag(:quote_type, options_from_collection_for_select(Quote.all, :mood_id, :body, @quote.quote_type), :class => "form-control") %>
                 <!-- <input type="text" name="user_mood_choice" id="mood_choice"> -->
               </div>
-
-              <button><span>Give me a quote to match my mood!</span></button>
+                    &nbsp
+              <button type="button" class="btn btn-default btn-lg btn-block">Get a quote!</button>
             </form>
           </div>
 
-          <div class="col-md-7">
+            <div class="col-md-7">
           </div>
         </div>
 
-
-        <div class="row">
-          <div class="col-md-offset-2 col-md-8">
-
-          </div>
-        </div>
       </div>
-
-
 
       <%end%>
