@@ -3,11 +3,10 @@ class UsersController < ApplicationController
 
   def show
 
-    type=Quote.where(params[:quote_type])
-    mood=Mood.where(params[:mood_choice])
-    mood_id=mood.id
-q= Quote.where(:quote_type => type,:mood_choice =>mood_id)
-@quote = q.body
+    # user_quote=Quote.where(:quote_type => params[:quote_type])
+    # mood=Mood.where(params[:mood_choice])
+    # mood_id=mood.id
+@q= Quote.where(:quote_type => params[:quote_type],:mood_id =>params[:mood_id]).first
 render("pages/home_form.html.erb")
   end
 end
