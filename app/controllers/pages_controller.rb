@@ -5,6 +5,7 @@ class PagesController < ApplicationController
   def home
     q = Quote.all.sample
     @quote=q.body
+    @author=q.author
 
     # Using Google api to find lat long from user input address
     if params[:user_street_address].present?
