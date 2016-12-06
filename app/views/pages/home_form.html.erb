@@ -1,5 +1,6 @@
 <% if current_user == nil %>
-
+<!-- View for visitor -->
+<!-- Carousel -->
 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
   <ol class="carousel-indicators">
@@ -43,19 +44,20 @@
 </div>
 
 &nbsp
-
+<!-- Random quote populated for visitors -->
 <div class="row">
   <div class="col-md-12">
     <div class="panel panel-default">
       <div class="panel-heading"><h4>A quote for you...</h4></div>
       <div class="panel-body">
-        <%= @quote %> -  <%= @author %>  </div>
+        "<%= @quote %>" -  <%= @author %>  </div>
       </div>
     </div>
   </div>
 
   &nbsp
 
+<!-- Prompting users to check weather -->
 
   <div class="panel panel-default">
     <div class="panel-heading">
@@ -121,11 +123,20 @@
           </div>
         </div>
         <%else%>
+
+
         <!-- User's view from here -->
         <div class="row">
           <div class="col-md-offset-1 col-md-10">
           <%  if @q.present? %>
-          <h1> "<%=@q.body%>" - <%=@q.author%> </h1>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h1 class="panel-title">Here is your customized quote</h1>
+              &nbsp
+
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h2 class="panel-title">"<%=@q.body%>" - <%=@q.author%></h2>
           <%  else%>
             <%= image_tag("Quote_Photos.jpg", :class =>"img-responsive") %>
             <%end%>
@@ -166,11 +177,4 @@
                   <button type="submit" class="btn btn-default btn-lg btn-block">Get a quote!</button>
                 </div>
               </form>
-
-              <div class="col-md-7">
-              </div>
-
-            </div>
-          </div>
-
           <%end%>
